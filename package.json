@@ -1,6 +1,17 @@
 {
+  "name": "chetanbudathoki.com",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
   "dependencies": {
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
-    "express": "^4.21.2"
+    "express": "^5.0.0",
+    "mongoose": "^8.12.2",
+    "nodemon": "^3.1.9"
+  },
+  "devDependencies": {
+    "eslint": "^9.23.0"
   }
 }
