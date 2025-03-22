@@ -1,4 +1,5 @@
 // connection/database.js
+
 require('dotenv').config({ path: '../.env' });
 const mongoose = require('mongoose');
 
@@ -7,9 +8,19 @@ if (!uri) {
   throw new Error('MONGO_URI is not defined in .env file');
 }
 
-// Connect without deprecated options
-mongoose.connect(uri)
-  .then(() => console.log('MongoDB connection established successfully.'))
-  .catch(err => console.error('MongoDB connection failed:', err));
+// Define dbConnection function
+function dbConnection() {
+  
+  mongoose.connect(uri)
+    .then(() => console.log('MongoDB connection established successfully.'))
+    .catch(err => console.error('MongoDB connection failed:', err));
+  
+  return mongoose.connection; // Return the connection object
+}
 
-module.exports = mongoose.connection;
+module.exports = dbConnection; // Export the function
+
+// Run connection if this file is executed directly
+if (require.main === module) {
+  dbConnection();
+}
