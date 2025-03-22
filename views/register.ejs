@@ -1,17 +1,263 @@
-<!-- views/register.ejs -->
 <!DOCTYPE html>
-<html>
+<html dir="ltr" lang="en-US">
+
 <head>
-  <title>Register page</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">	
+	
+	<link rel="stylesheet" href="/static/css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/style.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/dark.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/font-icons.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/animate.css" type="text/css">
+	<link rel="stylesheet" href="/static/css/magnific-popup.css" type="text/css">	
+	<link rel="stylesheet" href="/static/css/custom.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="shortcut icon" href="images/favicon.png" />
+	
+	<meta property="og:title" content="Youth Congress Nepal | Young Democrats, Together for Nepal">
+	<meta property="og:description" content="Youth Congress Nepal is the movement to consolidate democracy. We believe in a politically liberal democracy, socially just and inclusive democracy, and we advocate for a well regulated and competitive economy.">
+	<meta property="og:image" content="http://youthcongressnepal.org/images/Youth-Congress-Nepal.jpg">
+	<meta property="og:url" content="http://youthcongressnepal.org">
+	
+	<meta name="twitter:title" content="Youth Congress Nepal | Young Democrats, Together for Nepal">
+	<meta name="twitter:description" content=" Youth Congress Nepal is the movement to consolidate democracy. ">
+	<meta name="twitter:image" content=" http://youthcongressnepal.org/images/Youth-Congress-Nepal.jpg ">
+	
+	<title>Youth Congress Nepal | Young Democrats, Together for Nepal</title>
+	
+	<meta name="description" content="Youth Congress Nepal is the movement to consolidate democracy. We believe in a politically liberal democracy, socially just and inclusive democracy, and we advocate for a well regulated and competitive economy.">
+
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
-<body>
-  <h1>Get yourself regsitered</h1>
-  <form action="/register" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required><br><br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br><br>
-    <button type="submit">Register</button>
-  </form>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		
+		<div id="header"></div>
+
+		<!-- Page Title
+		============================================= -->
+		<section id="page-title">
+			<div class="container clearfix">
+				<h1>Registration</h1>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="/">Home</a></li>					
+					<li class="breadcrumb-item active" aria-current="page">Registration</li>
+				</ol>
+			</div>
+		</section>
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap">
+				<div class="container clearfix">
+
+					<div class="row">			
+
+						<div class="col-md-12">
+							<h3>Be a part of Youth Congress Nepal. Register Now.</h3>
+
+							<p></p>
+
+							<form id="register-form" name="register-form" class="row" action="/register" method="post">
+								<div class="col-12 form-group"> 
+									<label for="first_name">First Name:</label>
+									<input type="text" id="first_name" name="first_name" class="form-control" required>
+								</div>
+							
+								<div class="col-12 form-group">
+									<label for="last_name">Last Name:</label>
+									<input type="text" id="last_name" name="last_name" class="form-control" required>
+								</div>
+							
+								<div class="col-12 form-group">
+									<label for="middle_name">Middle Name:</label>
+									<input type="text" id="middle_name" name="middle_name" class="form-control">
+								</div>
+							
+								<div class="col-12 form-group">
+									<label for="email_id">Email Address:</label>
+									<input type="email" id="email_id" name="email_id" class="form-control" required 
+										pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+										title="Please enter a valid email address.">
+								</div>
+								
+							
+								<div class="w-100"></div>
+							
+								<div class="col-12 form-group">
+									<label for="mobile_number">Mobile Number:</label>
+									<input type="text" id="mobile_number" name="mobile_number" class="form-control" required 
+										pattern="\d{10}" title="Please enter a valid 10-digit mobile number.">
+								</div>
+								
+
+								<div class="w-100"></div>							
+
+								<div class="col-12 form-group">
+									<label for="gender">Gender:</label>
+									<select id="gender" name="gender" class="form-control" required>
+										<option value="Male">Male</option>
+										<option value="Female">Female</option>
+										<option value="Other">Other</option>
+									</select>
+								</div>					
+															
+								<div class="col-12 form-group">
+									<label for="blood_group">Blood Group:</label>
+									<select id="blood_group" name="blood_group" class="form-control" required>
+										<option value="A+">A+</option>
+										<option value="A-">A-</option>
+										<option value="B+">B+</option>
+										<option value="B-">B-</option>
+										<option value="O+">O+</option>
+										<option value="O-">O-</option>
+										<option value="AB+">AB+</option>
+										<option value="AB-">AB-</option>
+									</select>
+								</div>
+
+								<div class="col-12 form-group">
+									<label for="dob">Date of Birth (AD):</label>
+									<input type="date" 
+										id="dob" 
+										name="dob" 
+										class="form-control" 
+										required
+										max="" 
+										onchange="validateAge(this)">
+								</div>
+															
+								<div class="divider divider-border divider-center"><i class="icon-location"></i></div>
+								<!-- Permanent Address -->
+								 
+								<div class="col-12 form-group center">
+									<label for="permanent_tole">Permanent Location:</label>									
+								</div>
+
+								<div class="col-12 form-group">
+									<label for="permanent_district">District:</label>
+									<select id="permanent_district" name="permanent_district" class="form-control" required>
+										<option value="" disabled selected>Select your district</option>
+									</select>
+								</div>
+							
+								<div class="col-12 form-group">
+									<label for="permanent_palika">Palika:</label>
+									<select id="permanent_palika" name="permanent_palika" class="form-control" required disabled>
+										<option value="" disabled selected>Select your palika</option>
+									</select>
+								</div>
+							
+								<div class="col-12 form-group">
+									<label for="permanent_wada">Ward Number:</label>
+									<select id="permanent_wada" name="permanent_wada" class="form-control" required disabled>
+										<option value="" disabled selected>Select your ward</option>
+									</select>
+								</div>
+							
+								<div class="col-12 form-group">
+									<label for="permanent_tole">Tole:</label>
+									<input 
+										type="text" 
+										id="permanent_tole" 
+										name="permanent_tole" 
+										class="form-control" 
+										placeholder="Your tole" 
+										disabled>
+								</div>
+							
+								<div class="divider divider-sm divider-rounded divider-center"><i class="icon-location"></i></div>
+
+								<div class="col-12 form-group center">
+									<label for="permanent_tole">Temporary Location:</label>
+									<p>You can skip temporary location, if you are currently staying in your permanent<p>								
+								</div>
+								<!-- Temporary Address -->								
+								<div class="col-12 form-group">
+									<label for="temporary_district">District:</label>
+									<select id="temporary_district" name="temporary_district" class="form-control">
+										<option value="" disabled selected>Select your district</option>
+									</select>
+								</div>
+								
+								<div class="col-12 form-group">
+									<label for="temporary_palika">Palika:</label>
+									<select id="temporary_palika" name="temporary_palika" class="form-control" disabled>
+										<option value="" disabled selected>Select your palika</option>
+									</select>
+								</div>
+								
+								<div class="col-12 form-group">
+									<label for="temporary_wada">Ward:</label>
+									<select id="temporary_wada" name="temporary_wada" class="form-control" disabled>
+										<option value="" disabled selected>Select your ward</option>
+									</select>
+								</div>
+								
+								<div class="col-12 form-group">
+									<label for="temporary_tole">Tole:</label>
+									<input 
+										type="text" 
+										id="temporary_tole" 
+										name="temporary_tole" 
+										class="form-control" 
+										placeholder="Your tole" 
+										disabled>
+								</div>								
+							
+								<div class="divider divider-border divider-center"><i class="icon-email2"></i></div>   
+
+								<div class="col-12 center">
+									<p>In case of any technical issues while submitting the registration form, feel free to call 9851152925.</p>
+								</div>	
+
+								<div class="col-8 col-lg-auto">
+									<button type="submit" class="button button-reveal button-large button-circle text-right">
+										<i class="icon-angle-right"></i>
+										<span>Submit your registration form</span>
+									</button>
+								</div>							
+							</form>					
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<div id="footer"></div>
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- JavaScripts
+	============================================= -->
+	
+
+	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8.2.0/dist/polyfill.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/3.6.2/fetch.min.js"></script>
+
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script src="/static/js/jquery.js"></script>
+	<script src="/static/js/plugins.min.js"></script>
+	<script src="/static/js/functions.js"></script>
+	<script src="/static/js/include-html.js"></script>
+
 </body>
 </html>

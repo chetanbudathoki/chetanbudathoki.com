@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config({ path: '/workspaces/chetanbudathoki.com/.env' });
 const Storage = require('minio');
 
 const storageClient = new Storage.Client({
@@ -7,11 +7,19 @@ const storageClient = new Storage.Client({
     useSSL: process.env.MINIO_USE_SSL === 'true',
     accessKey: process.env.MINIO_ACCESS_KEY,
     secretKey: process.env.MINIO_SECRET_KEY
-});
+    });
 
-// Check connection by listing buckets
-storageClient.listBuckets()
-  .then(() => console.log('Storage connection established.'))
-  .catch((err) => console.error('Storage connection failed:', err.message));
+function storageConnection() {
+
+  storageClient.listBuckets()
+    .then(() => console.log('Storage connection established.'))
+    .catch((err) => console.error('Storage connection failed:', err.message));
+
+    return storageClient;
+  }
   
-module.exports = { storageClient };
+module.exports = { storageConnection, storageClient };
+
+if (require.main === module) {
+  storageConnection();
+  }
