@@ -6,10 +6,9 @@ app.get('/', (req, res) => {
     res.render('register', {status: 'Account already exists? <a href="/login">Login here</a>'});
 });
 
-
 app.post('/', async (req, res) => {
 
-    const { username, password } = req.body;
+    const { firstname, lastname, username, password, email, mobile } = req.body;
 
     //CHECK FOR PRE EXISTING ACCOUNTS
     const account = await accountModel.findOne({username: username});
@@ -17,8 +16,12 @@ app.post('/', async (req, res) => {
 
     //CREATE NEW USER ACCOUNT AND SAVE TO DATABASE
     const newUserAccount = new accountModel();
-    newUserAccount.username = username;
-    newUserAccount.password = password;
+    newUserAccount.firstname = firstname;
+    newUserAccount.lastname  = lastname;
+    newUserAccount.username  = username;
+    newUserAccount.password  = password;
+    newUserAccount.email     = email;
+    newUserAccount.mobile    = mobile;
     await newUserAccount.save();
 
     res.redirect('/login')

@@ -70,24 +70,28 @@
 							<form id="register-form" name="register-form" class="row" action="/register" method="post">
 								<div class="col-12 form-group"> 
 									<label for="first_name">First Name:</label>
-									<input type="text" id="first_name" name="first_name" class="form-control" required>
+									<input type="text" id="firstname" name="firstname" class="form-control" required>
 								</div>
 							
 								<div class="col-12 form-group">
 									<label for="last_name">Last Name:</label>
-									<input type="text" id="last_name" name="last_name" class="form-control" required>
-								</div>
-							
+									<input type="text" id="lastname" name="lastname" class="form-control" required>
+								</div>						
+								
 								<div class="col-12 form-group">
-									<label for="middle_name">Middle Name:</label>
-									<input type="text" id="middle_name" name="middle_name" class="form-control">
+									<label for="last_name">Username:</label>
+									<input type="text" id="username" name="username" class="form-control" required>
 								</div>
+
+								<div class="col-12 form-group">
+									<label for="last_name">Password:</label>
+									<input type="password" id="password" name="password" class="form-control" required>
+								</div>
+
 							
 								<div class="col-12 form-group">
 									<label for="email_id">Email Address:</label>
-									<input type="email" id="email_id" name="email_id" class="form-control" required 
-										pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
-										title="Please enter a valid email address.">
+									<input type="email" id="email" name="email" class="form-control" required>
 								</div>
 								
 							
@@ -95,10 +99,11 @@
 							
 								<div class="col-12 form-group">
 									<label for="mobile_number">Mobile Number:</label>
-									<input type="text" id="mobile_number" name="mobile_number" class="form-control" required 
+									<input type="text" id="mobile" name="mobile" class="form-control" required 
 										pattern="\d{10}" title="Please enter a valid 10-digit mobile number.">
 								</div>
 								
+								<!--
 
 								<div class="w-100"></div>							
 
@@ -137,7 +142,7 @@
 								</div>
 															
 								<div class="divider divider-border divider-center"><i class="icon-location"></i></div>
-								<!-- Permanent Address -->
+								
 								 
 								<div class="col-12 form-group center">
 									<label for="permanent_tole">Permanent Location:</label>									
@@ -181,7 +186,7 @@
 									<label for="permanent_tole">Temporary Location:</label>
 									<p>You can skip temporary location, if you are currently staying in your permanent<p>								
 								</div>
-								<!-- Temporary Address -->								
+																
 								<div class="col-12 form-group">
 									<label for="temporary_district">District:</label>
 									<select id="temporary_district" name="temporary_district" class="form-control">
@@ -219,6 +224,8 @@
 								<div class="col-12 center">
 									<p>In case of any technical issues while submitting the registration form, feel free to call 9851152925.</p>
 								</div>	
+
+								-->
 
 								<div class="col-8 col-lg-auto">
 									<button type="submit" class="button button-reveal button-large button-circle text-right">
