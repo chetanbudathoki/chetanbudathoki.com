@@ -9,12 +9,16 @@ app.get('/', (req, res) => {
 
 app.post('/', async (req, res) => {
 
-    const { username, password } = req.body;
+    const { mobile, password } = req.body;
 
     //CHECK FOR EXISTING ACCOUNTS
-    const account = await accountModel.findOne({username: username, password: password});
+    const account = await accountModel.findOne({mobile: mobile});
     if(!account) return res.render('login', {status: 'You account does not exist. Please register. <a href="/register">Register here</a>'});
-    res.redirect(`/profile/${username}`)
+
+    if(account.password !== password) return res.render('login', {status: 'Incorrect password. Please try again.'});
+
+    res.cookie('loggedIn', account._id, { maxAge: 1000 * 60 * 60 * 24 * 7, httpOnly: true});
+    res.redirect(`/profile/${account.username}`)
 })
 
 module.exports = { app };

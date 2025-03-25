@@ -1542,12 +1542,22 @@
 
 						<div class="col-md-9">
 
-							<img src="images/icons/avatar.jpg" class="alignleft img-circle img-thumbnail my-0" alt="Avatar" style="max-width: 84px;">
+							<img src="<%= image %>" class="alignleft img-circle img-thumbnail my-0" alt="Avatar" style="max-width: 84px;">
 
 							<div class="heading-block border-0">
-								<h3>SemiColonWeb</h3>
+								<h3><%= account.firstname %> <%= account.lastname %></h3>
 								<span>Your Profile Bio</span>
 							</div>
+
+							<form method="post" action="/profile/changeImage" enctype="multipart/form-data" data-toggle="validator">
+								<strong>Change profile picture:</strong><br><br>
+								<div class="form-group">
+									<input type="file" class="imagePreview" id="pic" name="pic" accept=".jpeg, .jpg, .png, .gif, image/jpeg, image/png, image/gif" required>
+									<br>
+									<small>Accepted formats: JPEG, PNG, GIF</small>
+									<button type="submit" class="btn btn-primary">Change Profile Image</button>
+								</div>
+							</form>
 
 							<div class="clear"></div>
 

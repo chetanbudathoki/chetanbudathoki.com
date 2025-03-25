@@ -19,7 +19,3 @@ function storageConnection() {
   }
   
 module.exports = { storageConnection, storageClient };
-
-if (require.main === module) {
-  storageConnection();
-  }

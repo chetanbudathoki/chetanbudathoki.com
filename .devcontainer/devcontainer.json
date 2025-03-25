@@ -3,12 +3,6 @@
 	"image": "node:22-alpine",
 	"remoteUser": "root",
 
-	"postCreateCommand": "/bin/sh /workspaces/chetanbudathoki.com/.devcontainer/setup.sh",
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"dbaeumer.vscode-eslint"
-			]
-		}
-	}
+	"postCreateCommand": "/bin/sh /workspaces/chetanbudathoki.com/.devcontainer/setup.sh"
+	
 }
