@@ -1,7 +1,7 @@
-require('dotenv').config({ path: '../.env' });
+const config = require("../config.json")
 const mongoose = require('mongoose');
 
-const uri = process.env.MONGO_URI;
+const uri = config.MONGO_URI;
 if (!uri) {
   throw new Error('MONGO_URI is not defined in .env file');
   }

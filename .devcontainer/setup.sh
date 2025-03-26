@@ -1,1 +1,2 @@
-apk add npm git
+apk add npm git 
+npm install nodemon

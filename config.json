@@ -1,0 +1,13 @@
+{
+    "MONGO_URI": "mongodb+srv://chetanbudathoki:HeroBudathoki3579@chetanbudathoki.ko2ln.mongodb.net/main?retryWrites=true&w=majority&appName=chetanbudathoki",
+    "MINIO_ENDPOINT": "94.136.185.141",
+    "MINIO_PORT": 9000,
+    "MINIO_USE_SSL": false,
+    "MINIO_ACCESS_KEY": "HTkDFKvkz7grU3qIPgDk",
+    "MINIO_SECRET_KEY": "cJwK85jmHarjY5K78SuVcm5qVIswKRcpubGHqC0z",
+    "MINIO_BUCKET": "youthcongressnepal",
+    "BIRASMS_API_KEY": "8EB4212649769CADB2CE340DD3FB2026",
+    "BIRASMS_CAMPAIGN": "Default Campaign",
+    "BIRASMS_routeId": "SI_Alert",
+    "BIRASMS_API_URL": "https://user.birasms.com/api/smsapi"
+}

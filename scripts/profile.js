@@ -5,6 +5,7 @@ const userDataModel = require('../models/userData');
 const multer = require('multer')
 const upload = multer({ storage: multer.memoryStorage() });
 const { storageClient } = require('../connection/storage')
+const config = require("../config.json")
 
 app.get('/', async (req, res) => {
 
@@ -24,10 +25,11 @@ app.get('/:username', async (req, res) => {
     accountData = await userDataModel.findOne({accountId: account._id})}
 
     try {
-        const objectStream = await storageClient.getObject(process.env.MINIO_BUCKET, account._id + '.png');
+        const objectStream = await storageClient.getObject(config.MINIO_BUCKET, account._id + '.png');
         let imageChunks = []; for await (const chunk of objectStream) {imageChunks.push(chunk)}
         res.render('profile', { 
             slu,
+            req,
             locationData: require('../data/location.json'),
             accountData,
             account, 
@@ -37,6 +39,7 @@ app.get('/:username', async (req, res) => {
     catch (error) {
         res.render('profile', { 
             slu,
+            req,
             locationData: require('../data/location.json'),
             accountData,
             account, 
@@ -55,13 +58,13 @@ app.post('/changeImage', upload.single('pic'), async (req, res) => {
     const fileName = req.cookies.loggedIn + '.png';
 
     try {
-        await storageClient.getObject(process.env.MINIO_BUCKET, fileName);
-        await storageClient.removeObject(process.env.MINIO_BUCKET, fileName);
-        await storageClient.putObject(process.env.MINIO_BUCKET, fileName, image.buffer);
+        await storageClient.getObject(config.MINIO_BUCKET, fileName);
+        await storageClient.removeObject(config.MINIO_BUCKET, fileName);
+        await storageClient.putObject(config.MINIO_BUCKET, fileName, image.buffer);
         res.redirect('/profile');
     } 
     catch (error) {
-        await storageClient.putObject(process.env.MINIO_BUCKET, fileName, image.buffer);
+        await storageClient.putObject(config.MINIO_BUCKET, fileName, image.buffer);
         res.redirect('/profile');
     }
 });

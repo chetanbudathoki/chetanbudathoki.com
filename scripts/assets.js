@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express.Router();
 const { storageClient } = require('../connection/storage')
+const config = require("../config.json")
 
 app.get('/:fileName', async (req, res) => {
     try {
-        const objectStream = await storageClient.getObject(process.env.MINIO_BUCKET, req.params.fileName);
+        const objectStream = await storageClient.getObject(config.MINIO_BUCKET, req.params.fileName);
         res.setHeader('Content-Type', 'image/png');
         objectStream.pipe(res);
     }

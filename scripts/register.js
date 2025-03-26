@@ -3,6 +3,7 @@ const axios = require('axios');
 const app = express.Router();
 const accountModel = require('../models/accounts');
 const verificationCodeModel = require('../models/verificationcode')
+const config = require("../config.json")
 
 app.get('/', (req, res) => {
     if(req.cookies.loggedIn) return res.redirect(`/profile`);
@@ -24,12 +25,12 @@ app.post('/', async (req, res) => {
     const message = `Your verification OTP code is ${otp}.  - Youth Congress Nepal, Communication Department`;
 
     try {
-        await axios.post(process.env.BIRASMS_API_URL, null, {
+        await axios.post(config.BIRASMS_API_URL, null, {
             params: {
-                key: process.env.BIRASMS_API_KEY,
-                campaign: process.env.BIRASMS_CAMPAIGN,
+                key: config.BIRASMS_API_KEY,
+                campaign: config.BIRASMS_CAMPAIGN,
                 contacts: mobile,
-                routeid: process.env.BIRASMS_routeId,
+                routeid: config.BIRASMS_routeId,
                 msg: message
             }
         });

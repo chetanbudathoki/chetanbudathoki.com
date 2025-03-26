@@ -1,12 +1,12 @@
-require('dotenv').config({ path: '../.env' });
+const config = require("../config.json")
 const Storage = require('minio');
 
 const storageClient = new Storage.Client({
-    endPoint: process.env.MINIO_ENDPOINT,
-    port: parseInt(process.env.MINIO_PORT, 10),
-    useSSL: process.env.MINIO_USE_SSL === 'false',
-    accessKey: process.env.MINIO_ACCESS_KEY,
-    secretKey: process.env.MINIO_SECRET_KEY
+    endPoint: config.MINIO_ENDPOINT,
+    port: parseInt(config.MINIO_PORT, 10),
+    useSSL: config.MINIO_USE_SSL === 'true',
+    accessKey: config.MINIO_ACCESS_KEY,
+    secretKey: config.MINIO_SECRET_KEY
     });
 
 function storageConnection() {

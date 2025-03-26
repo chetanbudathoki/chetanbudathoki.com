@@ -97,8 +97,10 @@
 									<a class="menu-link" href="/contact"><div>Contact us</div></a>
 								</li>
 								
-								<a class="button button-border button-rounded"><i class="icon-user"></i>You are logged in as <%= account.firstname %> <%= account.lastname %></a>
-								
+								<% if (req.cookies.loggedIn) { %>
+									<a class="button button-border button-rounded"><i class="icon-user"></i>You are logged in as <%= account.firstname %> <%= account.lastname %></a>
+								<% } %>
+
 							   
 								
 							</ul>
