@@ -35,85 +35,7 @@
 
 <body class="stretched">
 	
-	<header id="header" class="full-header">
-        <div id="header-wrap">
-            <div class="container">
-                <div class="header-row">
-    
-                    
-                    <div id="logo">
-                        <a href="/" class="standard-logo" data-dark-logo="/assets/logo.png"><img src="/assets/logo.png" alt="Youth Congress Nepal"></a>
-                        <a href="/" class="retina-logo" data-dark-logo="/assets/logo.png"><img src="/assets/logo.png" alt="Youth Congress Nepal"></a>
-                    </div><!-- #logo end -->
-    
-                    <div class="header-misc">
-    
-                    </div>
-    
-                    <div id="primary-menu-trigger">
-                        <svg class="svg-trigger" viewbox="0 0 100 100"><path d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path><path d="m 30,50 h 40"></path><path d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path></svg>
-                    </div>
-    
-                    <nav class="primary-menu">
-    
-                        <ul class="menu-container">
-                            
-                                
-                            <li class="menu-item">
-                                <a class="menu-link" href="#"><div>Who we are</div></a>
-                                    <ul class="sub-menu-container">
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="/about"><div><i class="icon-book"></i>About Youth Congress Nepal</div></a>
-                                        
-                                    </li>
-    
-                                    <li class="menu-item">
-                                        <a class="menu-link" href="#"><div><i class="icon-group"></i>Our Team</div></a>
-                                        <ul class="sub-menu-container">
-                                            <li class="menu-item">
-                                                <a class="menu-link" href="/central-committee"><div>Central Committee</div></a>
-                                            </li>
-    
-                                                                                
-                                        </ul>
-                                    </li>							
-                            
-                                    </ul>	
-                            </li>
-                            
-                            
-                            
-                            <li class="menu-item">
-                                <a class="menu-link" href="/faqs"><div>FAQs</div></a>
-                            </li>
-                            
-                            
-                            
-                            <li class="menu-item">
-                                <a class="menu-link" href="/contact"><div>Contact us</div></a>
-                            </li>
-                            
-                            <li class="menu-item">
-                            <a href="/registration" class="button button-border button-rounded button-fill fill-from-bottom button-red"><span>Join Youth Congress Nepal</span></a>
-                            </li>
-                            
-                           
-                            
-                        </ul>
-    
-                    </nav>
-    
-                    </nav>
-    
-                    <form class="top-search-form" action="search.html" method="get">
-                        <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter.." autocomplete="off">
-                    </form>
-    
-                </div>
-            </div>
-        </div>
-        <div class="header-wrap-clone"></div>
-    </header>
+	<%- include('header') %>
 	
 	<div id="wrapper" class="clearfix">
 
@@ -122,7 +44,7 @@
 
 				<div class="owl-carousel carousel-widget" data-margin="0" data-items="1" data-pagi="false" data-loop="true" data-animate-in="rollIn" data-speed="450" data-animate-out="rollOut" data-autoplay="5000">
 
-					<a href="#"><img src="/images/slider/full/1.jpg" alt="Slider"></a>					
+					<a href="#"><img src="/assets/1.jpg" alt="Slider"></a>					
 				</div>
 			</div>
 		</section>
@@ -137,7 +59,7 @@
 								<h3>Be a part of consolidating democracy with us</h3>
 								</div>
 							<div class="col-12 col-lg-auto mt-4 mt-lg-0">
-								<a href="/registration" target='_blank' class="button button-reveal button-large button-circle text-right m-0"><i class="icon-angle-right"></i><span>Join Youth Congress Nepal</span></a>
+								<a href="/register" target='_blank' class="button button-reveal button-large button-circle text-right m-0"><i class="icon-angle-right"></i><span>Join Youth Congress Nepal</span></a>
 							</div>
 						</div>
 					</div>
@@ -168,73 +90,7 @@
 
 	</div>
 
-	<footer id="footer" class="dark" style="background: url('images/footer-bg.jpg') repeat fixed; background-size: 100% 100%;">
-        <div class="container">
-           
-            <div class="footer-widgets-wrap">
-    
-                <div class="row col-mb-50"> 
-                    <div class="col-md-12">
-                        <div class="widget clearfix">
-    
-                            <img src="images/footer-widget-logo.png" alt="Image" class="alignleft-2" style="padding-right: 18px; border-right: 1px solid #FFFFFF66;">
-    
-                            <p style="font-size:15px; margin-top: 8px;">
-                            Youth Congress Nepal is the movement to consolidate democracy. We believe in a politically liberal democracy, socially just and inclusive democracy, and we advocate for a well regulated and competitive economy. Our core principles are aligned with patriotism, progressiveness, freedom, and equity ensured by the Constitution of Nepal.
-                            </p>
-    
-                            <div class="line line-sm"></div>
-    
-                            <div class="row col-mb-50">
-                                
-    
-                                
-                            </div>
-    
-                        </div>
-                    </div>
-    
-                    
-                </div>
-    
-            </div>
-        </div>
-    
-    
-        <div id="copyrights">
-            <div class="container">
-    
-                <div class="row justify-content-between col-mb-30">
-                    <div class="col-12 col-lg-auto text-center text-lg-left">
-                        <div class="copyrights-menu copyright-links clearfix">
-                            <a href="/">Home</a>/<a href="/about">About Youth Congress Nepal</a>/<a href="/faqs">FAQS</a>/<a href="/contact">Contact</a>
-                        </div>
-                        Copyrights &copy; 2024 All Rights Reserved by Youth Congress Nepal.
-                    </div>
-    
-                    <div class="col-12 col-lg-auto text-center text-lg-right">
-                        <a href="https://www.facebook.com/YouthCongressNepal/" target="_blank" class="social-icon inline-block si-small si-borderless mb-0 si-facebook">
-                            <i class="icon-facebook"></i>
-                            <i class="icon-facebook"></i>
-                        </a>
-    
-                        <a href="https://www.twitter.com/YouthCongressNP/" target="_blank" class="social-icon inline-block si-small si-borderless mb-0 si-twitter">
-                            <i class="icon-twitter"></i>
-                            <i class="icon-twitter"></i>
-                        </a>
-    
-                        <a href="https://www.instram.com/youthcongressnepal/" target="_blank" class="social-icon inline-block si-small si-borderless mb-0 si-instagram">
-                            <i class="icon-instagram"></i>
-                            <i class="icon-instagram"></i>
-                        </a>
-    
-                        
-                    </div>
-                </div>
-    
-            </div>
-        </div>
-    </footer>	
+	<%- include('footer') %>
 
 	<div id="gotoTop" class="icon-angle-up"></div>
 	

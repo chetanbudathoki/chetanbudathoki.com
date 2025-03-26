@@ -21,7 +21,7 @@ app.post('/', async (req, res) => {
 
     //send code
     let otp = Math.floor(Math.random() * 999999) + 111111;
-    const message = `Your OTP code for youthcongressnepal.org is ${otp}. Do not share this with anyone.`;
+    const message = `Your verification OTP code is ${otp}.  - Youth Congress Nepal, Communication Department`;
 
     try {
         await axios.post(process.env.BIRASMS_API_URL, null, {

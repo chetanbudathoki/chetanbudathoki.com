@@ -6162,7 +6162,7 @@ body:not(.has-plugin-html5video) .video-wrap video {
 }
 
 .page-title-pattern {
-    background-image: url(static/images/pattern.png);
+    background-image: url(assets/pattern.png);
     background-repeat: repeat;
     background-attachment: fixed
 }

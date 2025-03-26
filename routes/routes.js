@@ -7,6 +7,7 @@ app.use('/register', require('../scripts/register.js').app);
 app.use('/profile', require('../scripts/profile.js').app);
 app.use('/assets', require('../scripts/assets.js').app);
 app.use('/about', require('../scripts/about.js').app);
+app.use('/faqs', require('../scripts/faqs.js').app);
 app.use('/contact', require('../scripts/contact.js').app);
 app.use('/logout', require('../scripts/logout.js').app);
 
