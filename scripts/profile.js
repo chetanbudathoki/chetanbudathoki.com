@@ -7,11 +7,38 @@ const upload = multer({ storage: multer.memoryStorage() });
 const { storageClient } = require('../connection/storage')
 const config = require("../config.json")
 
+const uniqueDistricts = new Set();
+const uniquePalikas = new Set();
+const uniqueWadas = new Set();
+const ud = require('../data/location.json').filter(data => {
+    if (!uniqueDistricts.has(data.district)) {
+        uniqueDistricts.add(data.district);
+        return true;
+    }
+    return false;
+});
+const up = require('../data/location.json').filter(data => {
+    if (!uniquePalikas.has(data.palika)) {
+        uniquePalikas.add(data.palika);
+        return true;
+    }
+    return false;
+});
+const uw = require('../data/location.json').filter(data => {
+    if (!uniqueWadas.has(data.wada)) {
+        uniqueWadas.add(data.wada);
+        return true;
+    }
+    return false;
+});
+
+const locationData = [require('../data/location.json'), ud, up, uw]
+
 app.get('/', async (req, res) => {
 
     if(!req.cookies.loggedIn) return res.redirect('/login')
     let account = await accountModel.findOne({_id: req.cookies.loggedIn});
-    if(!account) return res.redirect('/')
+    if(!account) return res.redirect('/logout')
     res.redirect('/profile/' + account.username)
 });
 
@@ -30,7 +57,7 @@ app.get('/:username', async (req, res) => {
         res.render('profile', { 
             slu,
             req,
-            locationData: require('../data/location.json'),
+            locationData,
             accountData,
             account, 
             image: `data:image/png;base64,${Buffer.concat(imageChunks).toString('base64')}` 
@@ -40,7 +67,7 @@ app.get('/:username', async (req, res) => {
         res.render('profile', { 
             slu,
             req,
-            locationData: require('../data/location.json'),
+            locationData,
             accountData,
             account, 
             image: 'https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png' 

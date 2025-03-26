@@ -30,6 +30,8 @@
         <meta name="description" content="Youth Congress Nepal is the movement to consolidate democracy. We believe in a politically liberal democracy, socially just and inclusive democracy, and we advocate for a well regulated and competitive economy.">
     
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     
     </head>
 
@@ -181,7 +183,7 @@
 
 																<!--MORE OPTIONS BELOW HERE-->
 
-																<% locationData.forEach((data) => { %> 
+																<% locationData[1].forEach((data) => { %> 
 																	<option value="<%= data.district %>"><%= data.district %></option>
 																<% }) %>
 
@@ -198,8 +200,8 @@
 
 																<!--MORE OPTIONS BELOW HERE-->
 																
-																<% locationData.forEach((data) => { %> 
-																	<option value="<%= data.palika %>"><%= data.palika %></option>
+																<% locationData[2].forEach((data) => { %> 
+																	<option value="<%= data.palika + ' ' + data.type %>"><%= data.palika + ' ' + data.type %></option>
 																<% }) %>
 
 																<!--MORE OPTION ABOVE HERE-->
@@ -209,17 +211,17 @@
 													
 														<div class="col-12 form-group">
 															<label for="permanent_wada">Ward Number:</label>
-															<select id="permanent_wada" name="permanent_wada" class="form-control" required>
+															<input id="permanent_wada" name="permanent_wada" class="form-control" required>
 																
 																<option value="<%= accountData.permanent_wada %>" selected><%= accountData.permanent_wada %></option>
 
-																<!--MORE OPTIONS BELOW HERE-->
+																<!--MORE OPTIONS BELOW HERE
 
-																<% locationData.forEach((data) => { %> 
+																<% locationData[3].forEach((data) => { %> 
 																	<option value="<%= data.ward %>"><%= data.ward %></option>
 																<% }) %>
 																
-																<!--MORE OPTION ABOVE HERE-->
+															MORE OPTION ABOVE HERE-->
 
 															</select>
 														</div>
@@ -234,7 +236,7 @@
 																placeholder="Your tole"
 																value="<%= accountData.permanent_tole ? accountData.permanent_tole: '' %>"
 																>
-														</div>
+														</div>												
 													
 														<div class="divider divider-sm divider-rounded divider-center"><i class="icon-location"></i></div>
 	
@@ -252,7 +254,7 @@
 
 																<!--MORE OPTIONS BELOW HERE-->
 
-																<% locationData.forEach((data) => { %> 
+																<% locationData[1].forEach((data) => { %> 
 																	<option value="<%= data.district %>"><%= data.district %></option>
 																<% }) %>
 																
@@ -269,8 +271,8 @@
 
 																<!--MORE OPTIONS BELOW HERE-->
 
-																<% locationData.forEach((data) => { %> 
-																	<option value="<%= data.palika %>"><%= data.palika %></option>
+																<% locationData[2].forEach((data) => { %> 
+																	<option value="<%= data.palika + ' ' + data.type %>"><%= data.palika + ' ' + data.type %></option>
 																<% }) %>
 																
 																<!--MORE OPTION ABOVE HERE-->
@@ -280,17 +282,17 @@
 														
 														<div class="col-12 form-group">
 															<label for="temporary_wada">Ward:</label>
-															<select id="temporary_wada" name="temporary_wada" class="form-control">
+															<input id="temporary_wada" name="temporary_wada" class="form-control">
 																
-																<option value="<%= accountData.temporary_wada %>" selected><%= accountData.temporary_wada %></option>
+																<option value="<%= accountData.temporary_wada %>" selected <%= accountData.temporary_wada %></option>
 
-																<!--MORE OPTIONS BELOW HERE-->
+																<!--MORE OPTIONS BELOW HERE
 
-																<% locationData.forEach((data) => { %> 
+																<% locationData[3].forEach((data) => { %> 
 																	<option value="<%= data.ward %>"><%= data.ward %></option>
 																<% }) %>
 																
-																<!--MORE OPTION ABOVE HERE-->
+																MORE OPTION ABOVE HERE-->
 
 															</select>
 														</div>
@@ -305,7 +307,7 @@
 																placeholder="Your tole" 
 																value="<%= accountData.temporary_tole ? accountData.temporary_tole: '' %>"
 																>
-														</div>								
+														</div>
 													
 														<div class="col-8 col-lg-auto">
 															<button type="submit" class="button button-reveal button-large button-circle text-right">
@@ -317,6 +319,41 @@
 														</div>  
 
 													</form>
+
+													<script>
+														// locationData[0] contains all districts, palikas
+														const locationData = JSON.parse('<%- JSON.stringify(locationData[0]) %>');
+													
+														$(document).ready(function () {
+															function updatePalikas(districtSelect, palikaSelect) {
+																let district = $(districtSelect).val();
+																let palikas = [];
+																$(palikaSelect).empty().append('<option value="">Select Palika</option>');
+													
+																locationData.forEach((data) => {
+																	if (data.district === district) {
+																		palikas.push(`${data.palika} ${data.type}`);
+																	}
+																});
+													
+																palikas = [...new Set(palikas)];
+																palikas.forEach((palika) => {
+																	$(palikaSelect).append('<option value="' + palika + '">' + palika + '</option>');
+																});
+															}
+													
+															// Handle Permanent Address
+															$('#permanent_district').change(function () {
+																console.log('updated district')
+																updatePalikas('#permanent_district', '#permanent_palika');
+															});
+													
+															// Handle Temporary Address
+															$('#temporary_district').change(function () {
+																updatePalikas('#temporary_district', '#temporary_palika');
+															});
+														});
+													</script>													
 	
 												</div>
 	
