@@ -3,6 +3,7 @@ const app = express.Router();
 const accountModel = require('../models/accounts');
 
 app.get('/', (req, res) => {
+    if(req.cookies.loggedIn) return res.redirect(`/profile`);
     res.render('login', {status: 'Account does not exists? <a href="/register">Register here</a>'});
 });
 
