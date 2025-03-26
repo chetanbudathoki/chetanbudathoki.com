@@ -3,6 +3,6 @@
 	"image": "node:22-alpine",
 	"remoteUser": "root",
 
-	"postCreateCommand": "/bin/sh /workspaces/chetanbudathoki.com/.devcontainer/setup.sh"
+	"postCreateCommand": "/bin/sh /workspaces/youthcongressnepal.org/.devcontainer/setup.sh"
 	
 }
